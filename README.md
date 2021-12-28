@@ -1,2 +1,3 @@
-# everyday-i
-forms &amp; reflections, an exercise in asking
+# everyday i believe
+
+forms and reflections
