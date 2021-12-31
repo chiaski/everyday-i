@@ -3,10 +3,33 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  
+  
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body{
-  padding:5cw;
+    letter-spacing: -.25px;
+  line-height:100%;
+  font-size:1.5em;
+}
+
+section#info{
+  font-size:1.25rem;
+}
+
+._question{
+  font-size:1.5em;
+  letter-spacing:-.75px;
+  line-height:110%;
+}
+
+input, button{
+  font-size:1rem;
+  padding:.5em;
 }
 
 /* hiding */
@@ -28,8 +51,9 @@ section#info{
 }
 
 #container {
+  box-sizing:border-box;
   padding: 1em;
-  width: 100vw;
+  width: 100%;
   display:flex;
   flex-wrap:wrap;
   place-items:center;
@@ -67,8 +91,7 @@ section#exp{
 /* -- STANDARD FORM STUFF */
 
 form{
-  max-width:450px;
-  font-size:1.25em;
+  max-width:520px;
 }
 
 select{
@@ -130,7 +153,7 @@ section#answers{
 }
 
 section#answers p{
-  max-width:450px;
+  max-width:600px;
   margin:2em auto;
 }
 

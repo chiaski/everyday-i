@@ -26,7 +26,7 @@ function getQuestion(){
 
 function start(){
   
-  $("header p").delay(1500).text("do your best to").delay(1500).text("tell me...");
+  $("header p").delay(500).text("do your best to").delay(3000).text("tell me...");
   $("#start").fadeOut("slow");
 
   setTimeout(function() { getQuestion(); $("._menu").fadeIn('slow'); }, 3000);
@@ -53,12 +53,15 @@ $(function() {
     let votes = parseInt($("#belief").attr( "value" ));
     let total = parseInt($("#belief").attr( "max" ));
     
+    let answer; // t: yes, f: no
     
     if ($('._options input[name="choice"]:checked').val() == "Yes") {
       // + yes & total
+      answer = true;
       votes++;
     } else if($('._options input[name="choice"]:checked').val() == "No"){
       // + total
+      answer = false;
     } else{
       // error
       console.log("nothing");
@@ -78,7 +81,17 @@ $(function() {
       
       console.log("submitting... " + votes + " / " + total);
       
-      $("._results span.n").text(votes);
+      
+      // adjust results
+      if(answer){ // show other yes
+        $("._results span.n").text(votes);
+        $("._results span.a").text("yes");
+      } else{ // show other nos
+        $("._results span.n").text(total - votes);
+        $("._results span.a").text("no");
+      }
+      
+      // fades
       $("#submit-ritual, ._options").fadeOut("fast");
       $("._results").fadeIn();
       
@@ -88,6 +101,7 @@ $(function() {
       // uncheck inputs
       $("._options input[name='choice']:checked").prop('checked', false);
       
+      // increment counter next to title
       count++;
       $("._title sup").text(count);
   
